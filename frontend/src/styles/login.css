@@ -1,0 +1,41 @@
+
+.login{
+    /* background-color: rgba(12, 32, 52, 0.669); */
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    height: 120vh;
+}
+
+h1{
+    padding: 1rem;
+}
+
+input{
+    padding: 1.2rem 1.2rem 1.2rem 0;
+    width: 70%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    margin-bottom: 2rem;
+    
+    font: 200 1.2rem "roboto";
+
+}
+
+button{
+    padding: 1rem;
+    font: 400 1.5rem "roboto";
+    width: 23%;
+    background-color: #fff;
+    color: black;
+    border: none;
+    outline:none;
+    border-radius: 7px; 
+}
+
+button:hover{
+    color: steelblue;
+    cursor: pointer;
+}
+
