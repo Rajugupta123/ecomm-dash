@@ -1,0 +1,19 @@
+.product-list{
+    text-align: center;
+    margin-top: 3rem;
+}
+
+h2{
+    margin-bottom: 12px;
+}
+.product-list ul{
+    margin: 0;
+}
+
+.product-list ul li{
+    display: inline-block; 
+    width: 150px;
+    padding: 1rem;
+    /* margin-top: 12px; */
+    border: 1px solid skyblue;
+}
