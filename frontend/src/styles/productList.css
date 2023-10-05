@@ -17,3 +17,10 @@ h2{
     /* margin-top: 12px; */
     border: 1px solid skyblue;
 }
+
+.btn{
+    font: 400 1rem "roboto";
+}
+.btn:hover{
+    color: red;
+}
