@@ -7,6 +7,7 @@ import Private from "./Components/Private"
 import Login from './Components/Login'
 import AddProduct from './Components/AddProduct'
 import ProductList from './Components/ProductList'
+import UpdateProduct from './Components/UpdateProduct'
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         <Route element={<Private />}>
           <Route path='/' element={<ProductList/>} />
           <Route path='/add' element={<AddProduct/>} />
-          <Route path='/update' element={<h1>Update Product</h1>} />
+          <Route path='/update/:id' element={<UpdateProduct/>} />
           {/* <Route path='/logout' element={<h1>Logout Product</h1>} /> */}
           <Route path='/profile' element={<h1>Profile</h1>} />
         </Route>

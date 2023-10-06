@@ -8,6 +8,7 @@ const Product = require("./db/Product")
 app.use(express.json())
 app.use(cors())
 
+//register a user
 app.post("/register", async (req, res) => {
     const data = new User(req.body)
     let result = await data.save()
@@ -16,6 +17,7 @@ app.post("/register", async (req, res) => {
     res.send(result)
 })
 
+//login user
 app.post("/login", async (req, res) => {
     if (req.body.password && req.body.email) {
         let user = await User.findOne(req.body).select("-password")
@@ -30,25 +32,53 @@ app.post("/login", async (req, res) => {
 
 })
 
-app.post("/add-product",async(req,res)=>{
+//to add single product
+app.post("/add-product", async (req, res) => {
     const data = new Product(req.body)
     let result = await data.save()
     res.send(result)
 })
 
-app.get("/products", async(req,res)=>{
+//get all products
+app.get("/products", async (req, res) => {
     const products = await Product.find()
-    if(products.length > 0){
-    res.send(products)
-    }else{
-        res.send({result:"No Products found"})
+    if (products.length > 0) {
+        res.send(products)
+    } else {
+        res.send({ result: "No Products found" })
     }
 })
 
-app.delete("/product/:id",async(req,res)=>{
-    const result = await Product.deleteOne({_id:req.params.id})
+//delete product
+app.delete("/product/:id", async (req, res) => {
+    const result = await Product.deleteOne({ _id: req.params.id })
     res.send(result)
 })
+
+
+//get single product
+app.get("/product/:id", async (req, res) => {
+    let result = await Product.findOne({ _id: req.params.id })
+    if (result) {
+        res.send(result)
+    } else {
+        res.send({ result: "no product found" })
+    }
+})
+
+
+//update single product
+app.put("/product/:id", async (req, res) => {
+    let result = await Product.updateOne(
+        { _id: req.params.id },
+        { $set: req.body }
+    )
+    res.send(result)
+})
+
+
+
+
 
 
 
