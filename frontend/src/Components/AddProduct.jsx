@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import "../styles/addProduct.css"
 
 const AddProduct = ()=>{
@@ -8,6 +9,8 @@ const AddProduct = ()=>{
     const[category,setCategory] = useState("")
     const[company,setCompany] = useState("")
     const[err,setErr] = useState(false)
+
+    const navigate = useNavigate()
 
     const style={
         color:"Red",
@@ -32,6 +35,7 @@ const AddProduct = ()=>{
         })
         result = await result.json()
         console.warn(result)
+        navigate("/")
 
     }
 
