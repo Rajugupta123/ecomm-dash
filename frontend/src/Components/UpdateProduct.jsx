@@ -3,9 +3,9 @@ import {useParams,useNavigate} from "react-router-dom"
 
 const UpdateProduct =()=>{
     
-    const[name,setName] = useState("")
-    const[price,setPrice] = useState("")
-    const[category,setCategory] = useState("")
+    const[name,setName] = useState(" ")
+    const[price,setPrice] = useState(" ")
+    const[category,setCategory] = useState(" ")
     const[company,setCompany] = useState("")
     
     const params = useParams()
@@ -15,7 +15,6 @@ const UpdateProduct =()=>{
         getProductDetails()
     },[])
 
-    
     //to fill products into update product
     const getProductDetails = async()=>{
         console.warn(params)

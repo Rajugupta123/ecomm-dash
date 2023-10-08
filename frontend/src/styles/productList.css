@@ -7,20 +7,30 @@ h2{
     margin-bottom: 12px;
 }
 .product-list ul{
-    margin: 0;
+    margin: 5px;
 }
 
 .product-list ul li{
     display: inline-block; 
-    width: 150px;
-    padding: 1rem;
+    width: 130px;
+    padding: 0.6rem;
     /* margin-top: 12px; */
-    border: 1px solid skyblue;
+    border: 1.5px solid skyblue;
 }
 
-.btn{
-    font: 400 1rem "roboto";
-}
-.btn:hover{
+.lnk,.udt{
+    height:40px;
+    font: 300 1rem "roboto";
     color: red;
+}
+.udt{
+    color: green;
+}
+
+.lnk:hover{
+    color: rgb(203, 107, 107);
+   
+}
+.udt:hover{
+    color: rgb(75, 148, 75);
 }

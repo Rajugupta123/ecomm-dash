@@ -10,7 +10,11 @@ const ProductList = () => {
   }, [])
 
   const getProducts = async () => {
-    let result = await fetch("http://localhost:5000/products")
+    let result = await fetch("http://localhost:5000/products",{
+      headers:{
+        authorization:JSON.parse(localStorage.getItem("token"))
+      }
+    })
     result = await result.json()
     setProducts(result)
 
@@ -44,14 +48,15 @@ const ProductList = () => {
   return (
     <div className="product-list">
       <h2>Products List</h2>
-      <input type="search" name="" id="" style={{ textAlign: "center" }} placeholder="search product" onChange={searchHandle} />
+      <input type="search" name="" id="" style={{ textAlign: "center",width:"25rem" }} placeholder="search product" onChange={searchHandle} autoFocus />
       <ul>
         <li>S.N</li>
         <li>Name</li>
         <li>Price</li>
         <li>Category</li>
         <li>Company</li>
-        <li>Operation</li>
+        <li>Delete</li>
+        <li>Update</li>
       </ul>
 
       {
@@ -64,9 +69,9 @@ const ProductList = () => {
               <li>{item.price}</li>
               <li>{item.category}</li>
               <li>{item.company}</li>
-              <li className="btn-li"><button className="btn" onClick={() => deleteProduct(item._id)}>Delete</button>
-                <Link to={"/update/" + item._id}>Update</Link>
-              </li>
+              {/* <li className="btn"><button className="dlt" onClick={() => deleteProduct(item._id)}>Delete</button></li> */}
+              <li><Link className="lnk" onClick={() => deleteProduct(item._id)} >Delete</Link></li>
+              <li><Link className="udt" to={"/update/" + item._id} >Update</Link></li>
             </ul>
           )
         }
